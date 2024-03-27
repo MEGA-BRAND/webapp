@@ -59,6 +59,7 @@ export const useCreateContactForm = () => {
 		onChangePhoneNumber,
 		onChangeEmail,
 		setName,
+		name,
 		canSubscribe,
 		phoneError,
 		emailError,
