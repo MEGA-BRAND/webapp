@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pt" data-theme="valentine">
-			<Head>
-				<script async src="https://www.googletagmanager.com/gtag/js?id=G-FKDE4G4396"></script>
-				<script>
+			<head>
+				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-FKDE4G4396"></Script>
+				<Script>
 					{`
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){
@@ -29,8 +29,8 @@ export default function RootLayout({
 
 						gtag('config', 'G-FKDE4G4396');
 					`}
-				</script>
-			</Head>
+				</Script>
+			</head>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<body className={inter.className}>{children}</body>
 		</html>
