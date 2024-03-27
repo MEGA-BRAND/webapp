@@ -1,8 +1,9 @@
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { debounce } from "lodash";
+import { toast } from "react-toastify";
 import { storeContact } from "@/api-client/contacts";
 import { isValidPhoneNumber } from "@/utils/numbers";
 import { isValidEmail } from "@/utils/strings";
-import { debounce, noop } from "lodash";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 export const useCreateContactForm = () => {
 	const [phoneError, setPhoneError] = useState(false);
@@ -45,7 +46,12 @@ export const useCreateContactForm = () => {
 					document.getElementById("my_modal").showModal();
 				}
 			})
-			.catch(noop);
+			.catch(() => {
+				toast("Ocorreu um erro", {
+					autoClose: 5000,
+					type: "error"
+				});
+			});
 	}, [name, email, phoneNumber]);
 	useEffect(() => {
 		if (!!name.length && !emailError && !phoneError) {
