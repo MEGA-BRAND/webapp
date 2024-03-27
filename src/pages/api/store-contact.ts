@@ -13,8 +13,8 @@ export default async function handler(
 		res.status(405).send({ message: "Only POST requests allowed" });
 		return;
 	}
-	if (!req.body.name || !req.body.email || !req.body.phoneNumber) {
-		res.status(400).send({ message: "Must send name, email and phoneNumber" });
+	if (!req.body.name || !req.body.phoneNumber) {
+		res.status(400).send({ message: "Must have name and phoneNumber" });
 		return;
 	} else {
 		try {
