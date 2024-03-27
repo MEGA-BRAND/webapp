@@ -9,7 +9,8 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<ResponseData>,
 ) {
-	if (req.method !== "POST") {
+	console.log("-> ", req.method);
+	if (req.method?.toLocaleLowerCase() !== "post") {
 		res.status(405).send({ message: "Only POST requests allowed" });
 		return;
 	}
