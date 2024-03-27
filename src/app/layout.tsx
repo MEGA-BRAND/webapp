@@ -18,8 +18,8 @@ export default function RootLayout({
 	return (
 		<html lang="pt" data-theme="valentine">
 			<head>
-				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-FKDE4G4396"></Script>
-				<Script>
+				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-FKDE4G4396" id="gtagscript"/>
+				<Script id="gtaglogic">
 					{`
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){
