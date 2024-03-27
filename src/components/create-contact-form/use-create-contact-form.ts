@@ -7,22 +7,10 @@ import { isValidEmail } from "@/utils/strings";
 
 export const useCreateContactForm = () => {
 	const [phoneError, setPhoneError] = useState(false);
-	const [emailError, setEmailError] = useState(false);
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [email, setEmail] = useState("");
 	const [name, setName] = useState("");
 	const [canSubscribe, setCanSubscribe] = useState(false);
-	const onChangeEmail = useCallback(
-		debounce((ev: ChangeEvent<HTMLInputElement>) => {
-			setEmail(ev.target.value);
-			if (isValidEmail(ev.target.value)) {
-				setEmailError(false);
-			} else {
-				setEmailError(true);
-			}
-		}, 250),
-		[setEmail, setEmailError],
-	);
 	const onChangePhoneNumber = useCallback(
 		debounce((ev: ChangeEvent<HTMLInputElement>) => {
 			setPhoneNumber(ev.target.value);
@@ -54,20 +42,19 @@ export const useCreateContactForm = () => {
 			});
 	}, [name, email, phoneNumber]);
 	useEffect(() => {
-		if (!!name.length && !emailError && !phoneError) {
+		if (!!name.length && !phoneError) {
 			setCanSubscribe(true);
 			return;
 		}
 		setCanSubscribe(false);
-	}, [name, emailError, phoneError]);
+	}, [name, phoneError]);
 	return {
 		subscribeCallback,
 		onChangePhoneNumber,
-		onChangeEmail,
+		setEmail,
 		setName,
 		name,
 		canSubscribe,
 		phoneError,
-		emailError,
 	};
 };

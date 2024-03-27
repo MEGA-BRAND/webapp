@@ -23,10 +23,12 @@ export const CreateContactForm = () => {
 							className={`input text-center ${!formState.name && "input-error"} bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
 						/>
 						<input
-							onChange={formState.onChangeEmail}
+							onChange={(ev) => {
+								formState.setEmail(ev.target.value);
+							}}
 							type="text"
-							placeholder="Email"
-							className={`input text-center ${formState.emailError && "input-error"} bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
+							placeholder="Email (Opcional)"
+							className={`input text-center bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
 						/>
 						<input
 							onChange={formState.onChangePhoneNumber}
