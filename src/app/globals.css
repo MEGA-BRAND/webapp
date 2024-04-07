@@ -9,3 +9,19 @@
 		text-wrap: balance;
 	}
 }
+
+.selected-flag {
+	background: transparent !important;
+}
+
+.react-tel-input {
+	width: 100% !important;
+}
+
+.open {
+	width: 100% !important;
+}
+
+.form-control .open {
+	width: auto !important;
+} 

@@ -1,4 +1,6 @@
 "use client";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import { useCreateContactForm } from "./use-create-contact-form";
 
 export const CreateContactForm = () => {
@@ -30,11 +32,33 @@ export const CreateContactForm = () => {
 							placeholder="Email (Opcional)"
 							className={`input text-center bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
 						/>
-						<input
+						<PhoneInput
+							country={'pt'}
+							value={formState.phoneNumber}
 							onChange={formState.onChangePhoneNumber}
-							type="tel"
-							placeholder="919123123"
-							className={`input w-full max-w-md text-center ${formState.phoneError && "input-error"} bg-pink-50 text-blue-950 w-64 border-1 border-pink-200 font-ptsans`}
+							inputStyle={{
+								background: "rgb(253, 242, 248)",
+								borderColor: formState.phoneError ? "#FF665B" : "rgb(251, 207, 232)",
+								borderWidth: 2,
+								color: "rgb(23 37 84)",
+								borderRadius: "1.9rem",
+								height: "48px",
+								padding: "0 56px",
+								fontFamily: "PT Sans, sans-serif",
+								width: "100%",
+								textAlign: "center"
+							}}
+							buttonStyle={{
+								borderRadius: "4rem",
+								padding: "4px",
+								borderColor: formState.phoneError ? "#FF665B" : "rgb(251, 207, 232)",
+							}}
+							dropdownStyle={{
+								background: "rgb(253, 242, 248)",
+								borderColor: "rgb(251, 207, 232)",
+								borderRadius: "0.5rem",
+								width: "100%",
+							}}
 						/>
 					</div>
 					<div className="flex content-center mt-4">

@@ -3,7 +3,6 @@ import { debounce } from "lodash";
 import { toast } from "react-toastify";
 import { storeContact } from "@/api-client/contacts";
 import { isValidPhoneNumber } from "@/utils/numbers";
-import { isValidEmail } from "@/utils/strings";
 
 export const useCreateContactForm = () => {
 	const [phoneError, setPhoneError] = useState(false);
@@ -12,9 +11,10 @@ export const useCreateContactForm = () => {
 	const [name, setName] = useState("");
 	const [canSubscribe, setCanSubscribe] = useState(false);
 	const onChangePhoneNumber = useCallback(
-		debounce((ev: ChangeEvent<HTMLInputElement>) => {
-			setPhoneNumber(ev.target.value);
-			if (isValidPhoneNumber(ev.target.value)) {
+		debounce((value: string) => {
+			const parsedPhoneNumber = `+${value}`;
+			setPhoneNumber(parsedPhoneNumber);
+			if (isValidPhoneNumber(parsedPhoneNumber)) {
 				setPhoneError(false);
 			} else {
 				setPhoneError(true);
@@ -51,6 +51,7 @@ export const useCreateContactForm = () => {
 	return {
 		subscribeCallback,
 		onChangePhoneNumber,
+		phoneNumber,
 		setEmail,
 		setName,
 		name,
