@@ -32,6 +32,7 @@ export const CreateContactForm = () => {
 							placeholder="Email (Opcional)"
 							className={`input text-center bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
 						/>
+						<div className='max-w-md m-auto w-full'>
 						<PhoneInput
 							country={'pt'}
 							value={formState.phoneNumber}
@@ -39,7 +40,7 @@ export const CreateContactForm = () => {
 							inputStyle={{
 								background: "rgb(253, 242, 248)",
 								borderColor: formState.phoneError ? "#FF665B" : "rgb(251, 207, 232)",
-								borderWidth: 2,
+								borderWidth: formState.phoneError ? 2 : 1,
 								color: "rgb(23 37 84)",
 								borderRadius: "1.9rem",
 								height: "48px",
@@ -60,6 +61,7 @@ export const CreateContactForm = () => {
 								width: "100%",
 							}}
 						/>
+						</div>
 					</div>
 					<div className="flex content-center mt-4">
 						<button
