@@ -37,7 +37,7 @@ export const useCreateContactForm = () => {
 			.catch(() => {
 				toast("Ocorreu um erro", {
 					autoClose: 5000,
-					type: "error"
+					type: "error",
 				});
 			});
 	}, [name, email, phoneNumber]);

@@ -1,6 +1,6 @@
 "use client";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { useCreateContactForm } from "./use-create-contact-form";
 
 export const CreateContactForm = () => {
@@ -32,35 +32,39 @@ export const CreateContactForm = () => {
 							placeholder="Email (Opcional)"
 							className={`input text-center bg-pink-50 text-blue-950 border-1 border-pink-200 w-full max-w-md font-ptsans`}
 						/>
-						<div className='max-w-md m-auto w-full'>
-						<PhoneInput
-							country={'pt'}
-							value={formState.phoneNumber}
-							onChange={formState.onChangePhoneNumber}
-							inputStyle={{
-								background: "rgb(253, 242, 248)",
-								borderColor: formState.phoneError ? "#FF665B" : "rgb(251, 207, 232)",
-								borderWidth: formState.phoneError ? 2 : 1,
-								color: "rgb(23 37 84)",
-								borderRadius: "1.9rem",
-								height: "48px",
-								padding: "0 56px",
-								fontFamily: "PT Sans, sans-serif",
-								width: "100%",
-								textAlign: "center"
-							}}
-							buttonStyle={{
-								borderRadius: "4rem",
-								padding: "4px",
-								borderColor: formState.phoneError ? "#FF665B" : "rgb(251, 207, 232)",
-							}}
-							dropdownStyle={{
-								background: "rgb(253, 242, 248)",
-								borderColor: "rgb(251, 207, 232)",
-								borderRadius: "0.5rem",
-								width: "100%",
-							}}
-						/>
+						<div className="max-w-md m-auto w-full">
+							<PhoneInput
+								country={"pt"}
+								value={formState.phoneNumber}
+								onChange={formState.onChangePhoneNumber}
+								inputStyle={{
+									background: "rgb(253, 242, 248)",
+									borderColor: formState.phoneError
+										? "#FF665B"
+										: "rgb(251, 207, 232)",
+									borderWidth: formState.phoneError ? 2 : 1,
+									color: "rgb(23 37 84)",
+									borderRadius: "1.9rem",
+									height: "48px",
+									padding: "0 56px",
+									fontFamily: "PT Sans, sans-serif",
+									width: "100%",
+									textAlign: "center",
+								}}
+								buttonStyle={{
+									borderRadius: "4rem",
+									padding: "4px",
+									borderColor: formState.phoneError
+										? "#FF665B"
+										: "rgb(251, 207, 232)",
+								}}
+								dropdownStyle={{
+									background: "rgb(253, 242, 248)",
+									borderColor: "rgb(251, 207, 232)",
+									borderRadius: "0.5rem",
+									width: "100%",
+								}}
+							/>
 						</div>
 					</div>
 					<div className="flex content-center mt-4">
